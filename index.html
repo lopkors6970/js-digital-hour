@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="div1">
+        <div id="saat">
+
+        </div>
+        <div id="dakika">
+
+        </div>
+        <div id="saniye">
+
+        </div>
+    </div>
+    
+
+    <script>
+        var date = new Date();
+        var saat, dakika, saniye;
+        saat = date.getHours();
+        dakika = date.getMinutes();
+        saniye = date.getSeconds();
+
+
+        setInterval(function(){
+            document.getElementById("saat").innerHTML = saat;
+            document.getElementById("dakika").innerHTML = dakika;
+            document.getElementById("saniye").innerHTML = saniye++;
+         if(Number(document.getElementById("saniye").innerText) == 59){
+            dakika++;
+            saniye=0;
+        }
+        if(Number(document.getElementById("dakika").innerText) > 59){
+            saat++;
+            dakika=0;
+        }
+        if(Number(document.getElementById("saat").innerText) > 23){
+            saat = 0;         
+            dakika = 0;
+        }
+        },1000);
+
+       
+    </script>
+
+</body>
+</html>
